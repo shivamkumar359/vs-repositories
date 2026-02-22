@@ -1,17 +1,32 @@
-num1 = int(input("Enter first number: "))
+result = float(input("Enter first number: "))
 
-num2 = int(input("Enter second number: "))
+while True:
+    op = input("Enter operator (+, -, *, /) or 'q' to quit: ")
 
-do = input("Enter Operator: ")
+    if op == 'q':
+        break
 
-if op == '+':
-  print("The addition is ",num1+num2)
+    num = float(input("Enter next number: "))
 
-elif op == '-':
-  print("The subtraction is ",num1-num2)
+    if op == '+':
+        result = result + num
 
-elif op == '*':
-  print("The multiplication is: ",num1*num2)
+    elif op == '-':
+        result = result - num
 
-elif op == '/':
-  print("The division is: ",num1/num2)
+    elif op == '*':
+        result = result * num
+
+    elif op == '/':
+        if num == 0:
+            print("Division by zero not allowed")
+            continue
+        result = result / num
+
+    else:
+        print("Invalid operator")
+        continue
+
+    print("Current result:", result)
+
+print("Final result:", result)
